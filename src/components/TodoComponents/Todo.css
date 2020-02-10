@@ -1,4 +1,4 @@
-.item.completed{
-    color:red;
-    text-decoration: line-through;
+.item.completed {
+    color:red !important ;
+    text-decoration: line-through !important;
 }
