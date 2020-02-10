@@ -27,16 +27,49 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			toDo: toDo
+			todoList: toDo
 		};
 	}
+
+  toggleItem = clickedId => {
+
+    const newTodo = this.state.todoList.map(item => {
+
+      if (item.id === clickedId) {
+        return {
+          ...item,
+          completed: !item.completed
+        };
+      }
+      else {
+        return item;
+      }
+    });
+
+    this.setState({
+			todoList: newTodo
+		});
+  }
+
+  addNewItem = itemText => {
+    const newItem = {
+      task: itemText,
+      id: Date.now(),
+      completed: false
+    };
+    this.setState({
+      todoList: [...this.state.todoList, newItem]
+    });
+  }
+
+  
 
 	render() {
 		return (
 			<section>
 				<h1>To Do List</h1>
-				<TodoForm />
-        <TodoList toDo={this.state.toDo}/>
+        <TodoForm addNewItem={this.addNewItem}/>
+        <TodoList toDo={this.state.todoList} toggleItem={this.toggleItem}/>
 			</section>
 		);
 	}
