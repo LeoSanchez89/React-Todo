@@ -1,5 +1,6 @@
 import React from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
+import styled from "styled-components";
 
 
 const Todo = props => {
@@ -11,10 +12,14 @@ const Todo = props => {
 			className={`item${props.item.completed ? " completed" : ""}`}
 		>
 			<ListGroup>
-				<ListGroupItem color="warning">{props.item.task}</ListGroupItem>
+				<StyledItem color="warning">{props.item.task}</StyledItem>
 			</ListGroup>
 		</div>
 	);
 };
 
 export default Todo;
+
+const StyledItem = styled(ListGroupItem)`
+    margin-bottom:1%;
+`; 

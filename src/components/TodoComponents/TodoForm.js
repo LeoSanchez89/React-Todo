@@ -1,5 +1,6 @@
 import React from "react";
 import { Input, Button, InputGroup } from "reactstrap";
+import styled from "styled-components";
 
 class TodoForm extends React.Component {
 	constructor() {
@@ -23,24 +24,30 @@ class TodoForm extends React.Component {
 
 	render() {
 		return (
-			<InputGroup>
-				<form onSubmit={this.handleSubmit}>
+			<form onSubmit={this.handleSubmit}>
+				<StyledGroup>
 					<Input
-						type="text"
-						name="newItem"
-						placeholder="Enter Task"
-						value={this.state.newItem}
-                        onChange={this.handleChanges}
-                        required
+						type="text" name="newItem" placeholder="Enter Task" value=
+						{this.state.newItem}
+						onChange={this.handleChanges}
+						required
 					/>
 
-					<Button color="danger" type="submit">
+					<Button color="success" type="submit">
 						Add
 					</Button>
-				</form>
-			</InputGroup>
+				</StyledGroup>
+			</form>
 		);
 	}
 }
 
 export default TodoForm;
+
+const StyledGroup = styled(InputGroup)`	
+    margin-bottom: 15%;
+   
+`;
+
+
+
