@@ -18,6 +18,7 @@ class TodoForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.addNewItem(this.state.newItem);
+        this.setState({ newItem: "" });
     }
 
     render() {
@@ -29,6 +30,7 @@ class TodoForm extends React.Component {
                     name="newItem"
                     value={this.state.newItem}
                     onChange={this.handleChanges}
+
                 />
                 <button type="submit">Add</button>
             </form>

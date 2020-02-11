@@ -8,16 +8,6 @@ const toDo = [
 		task: "Complete Assignment",
 		id: Date.now(),
 		completed: false
-	},
-	{
-		task: "Buy Groceries",
-		id: Date.now(),
-		completed: false
-	},
-	{
-		task: "Take Out Garbage",
-		id: Date.now(),
-		completed: false
 	}
 ];
 
@@ -73,7 +63,7 @@ class App extends React.Component {
 		return (
 			<section>
 				<div>
-					<h1>To Do List</h1>
+					<h1>To-Do List</h1>
 					<TodoForm addNewItem={this.addNewItem} />
 				</div>
         <TodoList toDo={this.state.todoList} toggleItem={this.toggleItem} clearCompleted={this.clearCompleted}/>
