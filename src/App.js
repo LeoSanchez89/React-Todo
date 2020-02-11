@@ -6,9 +6,20 @@ import "./components/TodoComponents/Todo.css";
 const toDo = [
 	{
 		task: "Complete Assignment",
-		id: Date.now(),
+		id: 1,
 		completed: false
-	}
+  },
+  {
+    task: "Wash Dishes",
+    id: 2,
+    completed: false
+  },
+  {
+    task: "Take Out Garbage",
+    id: 3,
+    completed: false
+  }
+
 ];
 
 class App extends React.Component {

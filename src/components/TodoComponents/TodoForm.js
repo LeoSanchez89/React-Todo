@@ -1,4 +1,5 @@
 import React from "react";
+import { Input, Button, InputGroup } from "reactstrap";
 
 class TodoForm extends React.Component {
 	constructor() {
@@ -6,37 +7,40 @@ class TodoForm extends React.Component {
 		this.state = {
 			newItem: ""
 		};
-    }
-    
-    handleChanges = e => {
-        
-        this.setState({
-            newItem: e.target.value
-        });
-    }
+	}
 
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.addNewItem(this.state.newItem);
-        this.setState({ newItem: "" });
-    }
+	handleChanges = e => {
+		this.setState({
+			newItem: e.target.value
+		});
+	};
 
-    render() {
+	handleSubmit = e => {
+		e.preventDefault();
+		this.props.addNewItem(this.state.newItem);
+		this.setState({ newItem: "" });
+	};
 
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    type="text"
-                    name="newItem"
-                    value={this.state.newItem}
-                    onChange={this.handleChanges}
+	render() {
+		return (
+			<InputGroup>
+				<form onSubmit={this.handleSubmit}>
+					<Input
+						type="text"
+						name="newItem"
+						placeholder="Enter Task"
+						value={this.state.newItem}
+                        onChange={this.handleChanges}
+                        required
+					/>
 
-                />
-                <button type="submit">Add</button>
-            </form>
-        );
-    }
-
+					<Button color="danger" type="submit">
+						Add
+					</Button>
+				</form>
+			</InputGroup>
+		);
+	}
 }
 
 export default TodoForm;
